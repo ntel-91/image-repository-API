@@ -7,8 +7,9 @@ Rails.application.routes.draw do
                 resources :items
               end
 
+            patch "/users/:user_id/unlock", to: 'items#unlock'
+            delete "/removeitems", to: 'items#remove'
             post "/login", to: 'auth#login'
-
             get "/auto_login", to: 'auth#auto_login'
         end
     end

@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_08_30_200652) do
 
   create_table "items", force: :cascade do |t|
     t.string "description"
+    t.boolean "private", default: true, null: false
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
