@@ -7,7 +7,7 @@ class Api::V1::ItemsController < ApplicationController
             items = user.items
             render json: items
         else
-            items = user.items.where(private: false)
+            items = user.items.where(isPrivate: false)
             render json: items
         end
         
@@ -30,7 +30,7 @@ class Api::V1::ItemsController < ApplicationController
 
         items = params[:data].map do |item|
             item = Item.find_by(id: item)
-            if item.private 
+            if item.isPrivate 
                 item
             else
                 render json: {errors: "Cannot unlock photos. Check selected images"}
@@ -38,7 +38,7 @@ class Api::V1::ItemsController < ApplicationController
         end
 
         items.each do |item|
-            # item.update(private: false)
+            # item.update(isPrivate: false)
 
         end
         
@@ -47,6 +47,14 @@ class Api::V1::ItemsController < ApplicationController
         byebug
         render json: items
 
+    end
+
+    def update
+        item = Item.find(params[:id])
+        newValue = !item.isPrivate
+        item.update(isPrivate: newValue)
+
+        render json: {}
     end
 
     def lock
