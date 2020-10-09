@@ -9,7 +9,7 @@
 Item.destroy_all
 User.destroy_all
 
-user = User.create!(first_name: 'Nick', last_name: 'T', username: 'NickyT', password: 'asdf')
+user = User.create!(first_name: 'UserAccount', last_name: 'UserLast', username: 'User', password: '1234')
 item1 = Item.create!(user_id: user.id, description: 'cool')
 
 item1.image.attach(
