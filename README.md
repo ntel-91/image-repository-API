@@ -34,6 +34,6 @@ Next, to seed your database with a started set of images and user account with t
 
 Finally:
 
-**Start server on port 3001 to communicate with frontend: `rails s -p 3001`**
+**Start server on port 3000 to communicate with frontend: `rails s -p 3000`**
 
 Then go ahead and follow the instructions to clone and run the [frontend repo](https://github.com/ntel-91/image-repository-client). 
